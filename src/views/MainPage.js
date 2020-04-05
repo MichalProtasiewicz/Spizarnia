@@ -1,8 +1,14 @@
 import React from 'react';
+import ProductItemList from '../components/organisms/ProductItemList/ProductItemList';
+import Heading from '../components/atoms/Heading/Heading';
+import AppContext from '../context';
 
 const MainPage = () => (
   <>
-    <h1>Hello</h1>
+    <Heading big>Lista Produktów</Heading>
+    <AppContext.Consumer>
+      {context => <ProductItemList items={context.items} />}
+    </AppContext.Consumer>
   </>
 );
 
