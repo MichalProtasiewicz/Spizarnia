@@ -4,7 +4,6 @@ import Paragraph from '../../atoms/Paragraph/Paragraph';
 import ButtonIcon from '../../atoms/ButtonIcon/ButtonIcon';
 import Heading from '../../atoms/Heading/Heading';
 import deleteIcon from '../../../assets/icons/basket.svg';
-import editIcon from '../../../assets/icons/gear.svg';
 
 const ProductItem = ({ name, category, quantity, minQuantity }) => (
   <div>
@@ -13,7 +12,6 @@ const ProductItem = ({ name, category, quantity, minQuantity }) => (
     <Paragraph>Quantity: {quantity}</Paragraph>
     <Paragraph>Min Quantity: {minQuantity}</Paragraph>
     <ButtonIcon icon={deleteIcon} />
-    <ButtonIcon icon={editIcon} />
   </div>
 );
 
