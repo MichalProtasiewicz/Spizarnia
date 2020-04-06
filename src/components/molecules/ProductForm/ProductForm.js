@@ -1,8 +1,25 @@
 /* eslint-disable react/destructuring-assignment */
 import React from 'react';
+import styled from 'styled-components';
+import TextField from '@material-ui/core/TextField';
 import AppContext from '../../../context';
-import Input from '../../atoms/Input/Input';
-import Button from '../../atoms/Button/Button';
+import ButtonIcon from '../../atoms/ButtonIcon/ButtonIcon';
+import Heading from '../../atoms/Heading/Heading';
+import acceptIcon from '../../../assets/icons/tick.svg';
+
+const Wrapper = styled.div`
+  width: 100%;
+`;
+
+const StyledForm = styled.form`
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  button {
+    margin-top: 25px;
+  }
+`;
 
 class ProductForm extends React.Component {
   constructor(props) {
@@ -39,9 +56,9 @@ class ProductForm extends React.Component {
     return (
       <AppContext.Consumer>
         {context => (
-          <div>
-            <h1>{context.itemEdited ? 'Edytuj' : 'Dodaj nowy'} produkt</h1>
-            <form
+          <Wrapper>
+            <Heading>{context.itemEdited ? 'Edytuj' : 'Dodaj nowy'} produkt</Heading>
+            <StyledForm
               autoComplete="off"
               onSubmit={
                 context.itemEdited !== null
@@ -49,44 +66,43 @@ class ProductForm extends React.Component {
                   : e => context.addItem(e, this.state)
               }
             >
-              <Input
+              <TextField
                 onChange={this.handleIntpuChange}
                 value={this.state.name}
-                name="name"
                 label="Name"
+                name="name"
               />
-              <Input
+              <TextField
                 onChange={this.handleIntpuChange}
                 value={this.state.category}
-                name="category"
                 label="Category"
+                name="category"
               />
-              <Input
+              <TextField
                 onChange={this.handleIntpuChange}
                 value={this.state.quantity}
-                name="quantity"
                 label="Quantity"
+                name="quantity"
                 type="number"
               />
-              <Input
+              <TextField
                 onChange={this.handleIntpuChange}
                 value={this.state.minQuantity}
+                label="Minimum quantity"
                 name="minQuantity"
-                label="Minimal quantity"
                 type="number"
               />
               {context.itemEdited ? (
-                <Input
+                <TextField
                   onChange={this.handleIntpuChange}
                   value={this.state.id}
                   name="id"
-                  label="Id"
                   type="hidden"
                 />
               ) : null}
-              <Button>{context.itemEdited ? 'Edytuj' : 'Dodaj nowy'} produkt</Button>
-            </form>
-          </div>
+              <ButtonIcon acceptColor icon={acceptIcon} />
+            </StyledForm>
+          </Wrapper>
         )}
       </AppContext.Consumer>
     );

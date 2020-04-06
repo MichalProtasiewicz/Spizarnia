@@ -1,8 +1,9 @@
 export const theme = {
-  grey100: 'hsl(0, 0%, 96%)',
-  grey200: 'hsl(0, 0%, 90%)',
-  grey300: 'hsl(0, 0%, 70%)',
-  black: 'hsl(0, 0%, 0%)',
+  black: '#222629',
+  greyDark: '#474B4F',
+  greyLight: '#6B6E70',
+  greenDark: '#61892F',
+  greenLight: '#86C232',
   light: 300,
   bold: 600,
   fontSize: {

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const ButtonIcon = styled.button`
   display: block;
@@ -10,10 +10,19 @@ const ButtonIcon = styled.button`
   background-position: 50% 50%;
   background-size: 50% 50%;
   border: none;
-
   &.active {
     background-color: white;
   }
+  ${({ deleteColor }) =>
+    deleteColor &&
+    css`
+      background-color: red;
+    `}
+  ${({ acceptColor }) =>
+    acceptColor &&
+    css`
+      background-color: green;
+    `}
 `;
 
 export default ButtonIcon;
