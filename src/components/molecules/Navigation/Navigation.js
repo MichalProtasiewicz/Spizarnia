@@ -7,9 +7,6 @@ const Navigation = () => (
       <Link to="/">Lista Produktów</Link>
     </li>
     <li>
-      <Link to="/products-edit">Edycja Produktów</Link>
-    </li>
-    <li>
       <Link to="/shop-list">Lista Zakupów</Link>
     </li>
   </ul>
